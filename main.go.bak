@@ -1,0 +1,17 @@
+package main
+
+import (
+	"encoding/hex"
+	"fmt"
+
+	"vanity-walk/internal"
+)
+
+func main() {
+	privKey, pubKey := internal.GenerateKeyPair()
+	address := internal.DeriveAddress(pubKey)
+
+	fmt.Println("Private Key:", hex.EncodeToString(privKey))
+	fmt.Println("Public Key: ", hex.EncodeToString(pubKey))
+	fmt.Println("Address:    0x" + hex.EncodeToString(address))
+}
